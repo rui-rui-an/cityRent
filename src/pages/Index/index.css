@@ -1,0 +1,17 @@
+.index .am-wingblank.am-wingblank-lg{
+  margin: 0;
+}
+.index .nav{
+  padding: 10px 0;
+}
+.index .nav img{
+  width: 48px;
+}
+.index .nav h2{
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 7px;
+}
+.index .nav .am-flexbox-item{
+  text-align: center;
+}
