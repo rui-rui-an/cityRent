@@ -6,7 +6,7 @@ import News from '../News'
 import Index from '../Index'
 import FindHouse from '../FindHouse'
 import My from '../My'
-import './home.css'
+import './home.scss'
 import { TabBar } from 'antd-mobile-v2';
 
 const tabItems = [
@@ -33,8 +33,17 @@ export default class Home extends React.Component {
   state = {
     selectedTab: this.props.location.pathname
   };
+  componentDidUpdate(prevProps) {
+    if(prevProps.location.pathname !== this.props.location.pathname){
+      this.setState({
+        selectedTab: this.props.location.pathname,
+      });
+    }
+    console.log(prevProps)
+    console.log(this.props)
+  }
   componentDidMount () {
-    console.log(window.location.pathname);
+    // console.log(window.location.pathname);
   }
   renderTabBarItems () {
     return (

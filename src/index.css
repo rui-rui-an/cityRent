@@ -3,7 +3,11 @@ html,body {
   font-family: 'Microsoft YaHei';
   color: #333;
   background-color: #fff;
-  
+  margin: 0;
+  padding: 0;
+}
+#root,.App{
+  height: 100%;
 }
 
 * {
