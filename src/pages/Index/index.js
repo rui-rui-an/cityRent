@@ -6,6 +6,9 @@ import Nav1 from "../../assets/images/nav-1.png"
 import Nav2 from "../../assets/images/nav-2.png"
 import Nav3 from "../../assets/images/nav-3.png"
 import Nav4 from "../../assets/images/nav-4.png"
+// 导入 utils 中获取当前定位城市的方法
+import { getCurrentCity } from '../../utils'
+
 const navs = [
   {
     id: 1,
@@ -98,21 +101,25 @@ export default class Index extends React.Component {
       </div>
     ))
   }
-  componentDidMount() {
+  async componentDidMount() {
     this.getSwipers()
     this.getGroupsList()
     this.getNews()
     // 获取定位信息
-    const curCity = new window.BMapGL.LocalCity()
-    curCity.get(async (res)=>{
-      // console.log(res);
-      const result = await axios.get(
-        `http://localhost:8080/area/info?name=${res.name}`
-      )
-      console.log(result)
-      this.setState({
-        curCityName: result.data.body.label
-      })
+    // const curCity = new window.BMapGL.LocalCity()
+    // curCity.get(async (res)=>{
+    //   // console.log(res);
+    //   const result = await axios.get(
+    //     `http://localhost:8080/area/info?name=${res.name}`
+    //   )
+    //   console.log(result)
+    //   this.setState({
+    //     curCityName: result.data.body.label
+    //   })
+    // })
+    const curCity = await getCurrentCity()
+    this.setState({
+      curCityName: curCity.label
     })
   }
   render() {
