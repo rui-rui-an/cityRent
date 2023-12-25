@@ -1,0 +1,17 @@
+.root {
+    height: 100%;
+    background-color: #fff;
+}
+
+.navHeader {
+    position: absolute;
+    z-index: 2;
+    background-color: #f4f4f4;
+}
+
+.nodata {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

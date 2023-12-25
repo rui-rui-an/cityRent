@@ -3,9 +3,10 @@ import { Route } from "react-router-dom"
 import News from "../News"
 import Index from "../Index"
 import FindHouse from "../FindHouse"
-import My from "../My"
+import Profile from "../Profile"
 import "./home.scss"
 import { TabBar } from "antd-mobile-v2"
+// const Profile = lazy(() => import('../Profile'))
 
 const tabItems = [
   {
@@ -72,7 +73,7 @@ export default class Home extends React.Component {
         <Route path="/home" exact component={Index}></Route>
         <Route path="/home/list" component={FindHouse}></Route>
         <Route path="/home/news" component={News}></Route>
-        <Route path="/home/profile" component={My}></Route>
+        <Route path="/home/profile" component={Profile} />
         <TabBar tintColor="#21b97a" barTintColor="white" noRenderContent>
           {this.renderTabBarItems()}
         </TabBar>
