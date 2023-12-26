@@ -1,5 +1,7 @@
 // 导入axios
 import axios from "axios"
+// 导入 utils 中获取当前定位城市的方法
+import { BASE_URL } from "./url"
 
 // 1 在 utils 目录中，新建 index.js，在该文件中封装
 // 2 创建并导出获取定位城市的函数 getCurrentCity
@@ -14,7 +16,7 @@ export const getCurrentCity = () => {
         try {
           // console.log('当前城市信息：', res)
           const result = await axios.get(
-            `http://localhost:8080/area/info?name=${res.name}`
+            `${BASE_URL}/area/info?name=${res.name}`
           )
           // result.data.body => { label: '上海', value: '' }
 

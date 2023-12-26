@@ -7,7 +7,7 @@ import Nav2 from "../../assets/images/nav-2.png"
 import Nav3 from "../../assets/images/nav-3.png"
 import Nav4 from "../../assets/images/nav-4.png"
 // 导入 utils 中获取当前定位城市的方法
-import { getCurrentCity } from "../../utils"
+import { getCurrentCity,BASE_URL } from "../../utils"
 // 导入搜索导航栏组件
 import SearchHeader from "../../components/SearchHeader"
 const navs = [
@@ -44,14 +44,14 @@ export default class Index extends React.Component {
     curCityName: "上海",
   }
   async getSwipers() {
-    const res = await axios.get("http://localhost:8080/home/swiper")
+    const res = await axios.get(`${BASE_URL}/home/swiper`)
     //  console.log(res);
     this.setState({
       swipers: res.data.body,
     })
   }
   async getGroupsList() {
-    const res = await axios.get("http://localhost:8080/home/groups", {
+    const res = await axios.get(`${BASE_URL}/home/groups`, {
       params: {
         area: "AREA%7C88cff55c-aaa4-e2e0",
       },
@@ -61,7 +61,7 @@ export default class Index extends React.Component {
     })
   }
   async getNews() {
-    const res = await axios.get("http://localhost:8080/home/news", {
+    const res = await axios.get(`${BASE_URL}/home/news`, {
       params: {
         area: "AREA%7C88cff55c-aaa4-e2e0",
       },
@@ -88,7 +88,7 @@ export default class Index extends React.Component {
         <div className="imgwrap">
           <img
             className="img"
-            src={`http://localhost:8080${item.imgSrc}`}
+            src={`${BASE_URL}${item.imgSrc}`}
             alt=""
           />
         </div>
@@ -142,7 +142,7 @@ export default class Index extends React.Component {
                     }}
                   >
                     <img
-                      src={`http://localhost:8080${val.imgSrc}`}
+                      src={`${BASE_URL}${val.imgSrc}`}
                       alt=""
                       style={{ width: "100%", verticalAlign: "top" }}
                     />
@@ -185,7 +185,7 @@ export default class Index extends React.Component {
                   <p className="title">{item.title}</p>
                   <span className="info">{item.desc}</span>
                 </div>
-                <img src={`http://localhost:8080${item.imgSrc}`} alt="" />
+                <img src={`${BASE_URL}${item.imgSrc}`} alt="" />
               </Flex>
             )}
           />

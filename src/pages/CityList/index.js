@@ -3,7 +3,7 @@ import axios from "axios"
 import { Toast} from "antd-mobile-v2"
 import NavHeader from '../../components/NavHeader'
 // 导入 utils 中获取当前定位城市的方法
-import { getCurrentCity } from "../../utils"
+import { getCurrentCity,BASE_URL } from "../../utils"
 import { List, AutoSizer } from "react-virtualized"
 import "./index.scss"
 // import styles from './index.module.css'
@@ -91,11 +91,12 @@ export default class CityList extends React.Component {
     this.cityListComponent.current.measureAllRows()
   }
   async getCityList() {
-    const res = await axios.get("http://localhost:8080/area/city?level=1")
+    const res = await axios.get(`${BASE_URL}/area/city?level=1`)
     const { cityList, cityIndex } = formatCityData(res.data.body)
 
     // 获取热门城市数据
-    const hotRes = await axios.get("http://localhost:8080/area/hot")
+    // const hotRes = await axios.get(`localhost:8080/area/hot`)
+    const hotRes = await axios.get(`${BASE_URL}/area/hot`)
     cityList["hot"] = hotRes.data.body
     cityIndex.unshift("hot")
 

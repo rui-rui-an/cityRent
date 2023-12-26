@@ -21,7 +21,7 @@ function SearchHeader({ history, cityName, className }) {
         </div>
 
         {/* 搜索表单 */}
-        <div className="form" onClick={() => history.push('/search')}>
+        <div className="form" onClick={() => history.push('/map')}>
           <i className="iconfont icon-seach" />
           <span className="text">请输入小区或地址</span>
         </div>
