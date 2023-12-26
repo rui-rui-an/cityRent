@@ -29,8 +29,8 @@ const RentSearch = lazy(() => import("./pages/Rent/Search"))
 
 function App() {
   return (
-    <Suspense fallback={<div className="route-loading">loading...</div>}>
-      <Router>
+    <Router>
+      <Suspense fallback={<div className="route-loading">loading...</div>}>
         <div className="App">
           <Route
             exact
@@ -50,8 +50,8 @@ function App() {
           <AuthRoute path="/rent/add" component={RentAdd} />
           <AuthRoute path="/rent/search" component={RentSearch} />
         </div>
-      </Router>
-    </Suspense>
+      </Suspense>
+    </Router>
   )
 }
 
